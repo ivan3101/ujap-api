@@ -8,6 +8,16 @@ const UserSchema = mongoose.Schema({
     required: [true, 'El nombre de usuario es requerido'],
     trim: true
   },
+  nombre: {
+    type: String,
+    required: [true, 'El nombre es requerido'],
+    trim: true
+  },
+  apellido: {
+    type: String,
+    required: [true, 'El apellido es requerido'],
+    trim: true
+  },
   hashedPassword: String,
   email: {
     type: String,
