@@ -1,0 +1,28 @@
+{
+  "name": "ujap-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "development": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ivan De Menezes",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.19.3",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "boom": "^7.2.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "helmet": "^3.12.1",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
