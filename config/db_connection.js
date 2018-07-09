@@ -1,6 +1,6 @@
 const bluebird = require('bluebird');
 const mongoose = require('mongoose');
-const {mongoURI, dbUser, dbPassword} = require('./');
+const {mongoURI, dbUser, dbPassword} = require('./index');
 
 mongoose.connect(`mongodb://${dbUser}:${dbPassword}@${mongoURI}`, {
   promiseLibrary: bluebird
