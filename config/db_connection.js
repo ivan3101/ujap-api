@@ -1,8 +1,8 @@
 const bluebird = require('bluebird');
 const mongoose = require('mongoose');
-const {mongoURI, dbUser, dbPassword} = require('./index');
+const config = require('./index');
 
-mongoose.connect(`mongodb://${dbUser}:${dbPassword}@${mongoURI}`, {
+mongoose.connect(`mongodb://${config.dbUser}:${config.dbPassword}@${config.mongoURI}`, {
   promiseLibrary: bluebird
 }).catch(err => console.log('No se pudo establecer conexión con MongoDB.', err));
 mongoose.connection
