@@ -18,6 +18,11 @@ const UserSchema = mongoose.Schema({
     required: [true, 'El apellido es requerido'],
     trim: true
   },
+  cedula: {
+    type: String,
+    required: [true, 'La cedula es requerida'],
+    trim: true
+  },
   hashedPassword: String,
   email: {
     type: String,
@@ -32,6 +37,34 @@ const UserSchema = mongoose.Schema({
   semestre: {
     type: String,
     required: [true, 'El semestre es requerido'],
+    trim: true,
+    enum: ['1ro', '2do', '3ro', '4to', '5to', '6to', '7mo', '8vo', '9no', '10mo']
+  },
+  promedio: {
+    type: String,
+    default: '0',
+    trim: true
+  },
+  uc: {
+    type: String,
+    default: '0',
+    trim: true
+  },
+  estado: {
+    type: String,
+    default: 'Activo',
+    enum: ['Activo', 'No activo'],
+    trim: true
+  },
+  beca: {
+    type: String,
+    default: '0%',
+    enum: ['0%', '50%', '75%', '100%'],
+    trim: true
+  },
+  cohorte: {
+    type: String,
+    required: [true, 'El cohorte es requerido'],
     trim: true
   }
 });
@@ -68,4 +101,4 @@ UserSchema.methods.toJSON = function() {
   return obj;
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Usuario', UserSchema);

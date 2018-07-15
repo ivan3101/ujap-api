@@ -4,7 +4,6 @@ const JwtSign = require('jsonwebtoken').sign;
 const {secret} = require('../../config');
 
 module.exports.register = async (req, res) => {
-
   const user = User(req.body);
   user.hashedPassword = await user.encryptPassword(req.body.password);
   await user.save();
