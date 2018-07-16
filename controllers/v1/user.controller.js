@@ -10,7 +10,7 @@ module.exports.register = async (req, res) => {
   res
     .status(201)
     .json({
-      status: 'Successful',
+      status: 'Exito',
       message: 'Usuario creado'
     });
 };
