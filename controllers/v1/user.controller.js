@@ -27,7 +27,8 @@ module.exports.login = async (req, res) => {
         .status(200)
         .json({
           'usuario': user,
-          'token': token
+          'token': token,
+          'tipo': 'estudiante'
         })
     }
   } else {

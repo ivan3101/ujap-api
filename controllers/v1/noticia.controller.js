@@ -10,3 +10,11 @@ module.exports.addNoticia = async (req, res) => {
       message: 'Noticia creada'
     });
 };
+
+module.exports.getLastNoticias = async (req, res) => {
+  const limit = 8;
+  const noticias = await Noticia.find().limit(limit).sort('-fecha');
+  res
+    .status(200)
+    .json(noticias);
+};

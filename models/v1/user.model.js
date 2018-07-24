@@ -58,8 +58,8 @@ const UserSchema = mongoose.Schema({
   },
   beca: {
     type: String,
-    default: '0%',
-    enum: ['0%', '50%', '75%', '100%'],
+    default: 'Sin Beca',
+    enum: ['Sin Beca', '50%', '75%', '100%'],
     trim: true
   },
   cohorte: {

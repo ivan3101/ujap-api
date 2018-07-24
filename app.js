@@ -11,8 +11,8 @@ const routes = require('./routes');
 const validationError = require('./errors/validation_error');
 const handleError = require('./errors/handle_error');
 
-app.use(helmet());
 app.use(cors());
+app.use(helmet());
 app.use(morgan('short'));
 app.use(bodyParser.json());
 

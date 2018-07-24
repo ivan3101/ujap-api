@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userController = require('../../controllers/v1/user.controller');
 const historicoController = require('../../controllers/v1/historico.controller');
+const articuloController = require('../../controllers/v1/articulo.controller');
 const horarioController = require('../../controllers/v1/horario.controller');
 const handleAsyncException = require('../../errors/handle_async_exception');
 
@@ -22,6 +23,12 @@ router
 
 router
   .route('/:id/horario')
+  .get(handleAsyncException(horarioController.getHorarioByStudent))
   .post(handleAsyncException(horarioController.addHorario));
+
+router
+  .route('/:id/articulo')
+  .get(handleAsyncException(articuloController.getArticulo))
+  .post(handleAsyncException(articuloController.addArticulo));
 
 module.exports = router;

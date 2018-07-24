@@ -14,3 +14,17 @@ module.exports.addHorario = async (req, res) => {
       message: 'Horario creado'
     })
 };
+
+module.exports.getHorarioByStudent = async (req, res) => {
+  const id = req.params.id;
+  const horario = await Horario
+    .findOne({
+      estudiante: id,
+      periodo: '20181CR'
+    })
+    .populate('materias.materia')
+    .populate('materias.profesor');
+  res
+    .status(200)
+    .json(horario);
+};
