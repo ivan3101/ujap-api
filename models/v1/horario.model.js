@@ -10,6 +10,14 @@ const HorarioSchema = mongoose.Schema({
     required: [true, 'El periodo es requerido'],
     trim: true
   },
+  modificado: {
+    type: Boolean,
+    default: false
+  },
+  retiroAdm: {
+    type: Boolean,
+    default: false
+  },
   materias: [{
     materia: {
       type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +28,11 @@ const HorarioSchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Profesor',
       required: [true, 'El ID del profesor es requerido']
+    },
+    seccion: {
+      type: String,
+      required: [true, 'La seccion es requerida'],
+      trim: true
     },
     bloques: [{
       dia: {

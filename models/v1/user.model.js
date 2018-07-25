@@ -30,9 +30,8 @@ const UserSchema = mongoose.Schema({
     trim: true
   },
   carrera: {
-    type: String,
-    required: [true, 'La carrera es requerida'],
-    trim: true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Carrera'
   },
   semestre: {
     type: String,

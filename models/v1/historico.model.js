@@ -5,7 +5,12 @@ const HistoricoSchema = mongoose.Schema({
     ref: 'Usuario',
     required: [true, 'El id del estudiante es requerido']
   },
-  materia: [{
+  periodo: {
+    type: String,
+    required: [true, 'El periodo es requerido'],
+    trim: true
+  },
+  materias: [{
     nombre: {
       type: String,
       required: [true, 'El nombre de la materia es requerido'],

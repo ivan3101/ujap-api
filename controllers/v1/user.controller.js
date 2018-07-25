@@ -2,6 +2,7 @@ const User = require('../../models/v1/user.model');
 const boom = require('boom');
 const JwtSign = require('jsonwebtoken').sign;
 const {secret} = require('../../config');
+const Carrera = require('../../models/v1/carrera.model')
 
 module.exports.register = async (req, res) => {
   const user = User(req.body);
@@ -18,7 +19,7 @@ module.exports.register = async (req, res) => {
 module.exports.login = async (req, res) => {
   const user = await User.findOne({
     'username': req.body.username
-  });
+  }).populate('carrera');
   if (!user) throw boom.unauthorized('Nombre de usuario o contraseña incorrectos');
   if (await user.checkPassword(req.body.password)) {
     const token = await JwtSign(user.toJSON(), secret, {'expiresIn': '24h'});

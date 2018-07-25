@@ -6,6 +6,10 @@ const HorarioSchema = mongoose.Schema({
     ref: 'Profesor',
     required: [true, 'El ID del profesor es requerido']
   },
+  carrera: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Carrera',
+  },
   bloque: [{
     dia: {
       type: String,

@@ -2,6 +2,7 @@ const Boom = require('boom');
 
 module.exports = fn => (req, res, next) => {
   fn(req, res, next).catch((err) => {
+    console.log(err)
     if (!err.isBoom) {
       if (err.name === 'ValidationError') {
         return next(err);
