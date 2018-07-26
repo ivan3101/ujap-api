@@ -4,6 +4,7 @@ const historicoController = require('../../controllers/v1/historico.controller')
 const articuloController = require('../../controllers/v1/articulo.controller');
 const horarioController = require('../../controllers/v1/horario.controller');
 const materiaController = require('../../controllers/v1/materia.controller');
+const pagoController = require('../../controllers/v1/pago.controller');
 const handleAsyncException = require('../../errors/handle_async_exception');
 
 router
@@ -24,6 +25,7 @@ router
 
 router
   .route('/:id/historico')
+  .get(handleAsyncException(historicoController.getHistorico))
   .post(handleAsyncException(historicoController.addHistorico));
 
 router
@@ -36,5 +38,9 @@ router
   .route('/:id/articulo')
   .get(handleAsyncException(articuloController.getArticulo))
   .post(handleAsyncException(articuloController.addArticulo));
+
+router
+  .route('/:id/pagos')
+  .get(handleAsyncException(pagoController.getPagos));
 
 module.exports = router;

@@ -21,13 +21,19 @@ module.exports.addArticulo = async (req, res) => {
 module.exports.getArticulo = async (req, res) => {
   const estudiante = req.params.id;
   const artNumber = req.query.art;
-  if (!artNumber) {
-    boom.badRequest('Debe pasar el numero de articulo como parametro en la url');
-  } else {
-    const articulo = await Articulo.findOne({
+  const estado = req.query.estado || 'En Proceso';
+  if (artNumber !== 'null') {
+  const articulo = await Articulo.findOne({
       estudiante,
       articulo: artNumber,
-      estado: 'En Proceso'
+      estado
+    });
+    res
+      .status(200)
+      .json(articulo);
+  } else {
+    const articulo = await Articulo.find({
+      estudiante
     });
     res
       .status(200)

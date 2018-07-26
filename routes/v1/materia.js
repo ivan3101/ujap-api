@@ -6,4 +6,12 @@ router
   .route('/')
   .post(handleAsyncError(materiaController.addMateria));
 
+router
+  .route('/secciones')
+  .get(handleAsyncError(materiaController.getSecciones));
+
+router
+  .route('/secciones/:seccion')
+  .get(handleAsyncError(materiaController.getMateriaBySeccion));
+
 module.exports = router;

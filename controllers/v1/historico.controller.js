@@ -4,7 +4,7 @@ module.exports.addHistorico = async (req, res) => {
   const id = req.params.id;
   const historico = Historico({
     estudiante: id,
-    materia: req.body.materia
+    ...req.body
   });
   await historico.save();
   res
@@ -13,4 +13,14 @@ module.exports.addHistorico = async (req, res) => {
       status: 'Exito',
       message: 'Historico creado'
     })
+};
+
+module.exports.getHistorico = async (req, res) => {
+  const id = req.params.id;
+  const historico = await Historico.find({
+    estudiante: id
+  });
+  res
+    .status(200)
+    .json(historico)
 };

@@ -19,8 +19,12 @@ const HistoricoSchema = mongoose.Schema({
     nota: {
       type: String,
       required: [true, 'La nota es requerida']
-    }
-  }]
+    },
+    uc: String,
+    estado: String
+  }],
+  ucTotal: String,
+  promedio: String
 });
 
 HistoricoSchema.methods.toJSON = function() {
