@@ -5,5 +5,5 @@
 4. Ejecuta `npm install`
 5. Inicia mongo
 4. Si tienes agregado mongorestore a las variables del sistema, ejecuta `npm run initialize`. En caso contrario, copia la carpeta db a donde se encuentra mongorestore (archivos de programa/mongo/x.xx/bin), abre una consola en esa carpeta bin y ejecuta el comando `mongorestore -d ujap db/` para importar la base de datos
-5. Ejecutar en el proyecto npm run development
+5. Ejecutar en el proyecto `npm run development`
 
