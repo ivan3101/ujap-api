@@ -5,6 +5,7 @@ const articuloController = require('../../controllers/v1/articulo.controller');
 const horarioController = require('../../controllers/v1/horario.controller');
 const materiaController = require('../../controllers/v1/materia.controller');
 const pagoController = require('../../controllers/v1/pago.controller');
+const papelesController = require('../../controllers/v1/papeles.controller');
 const handleAsyncException = require('../../errors/handle_async_exception');
 
 router
@@ -42,5 +43,9 @@ router
 router
   .route('/:id/pagos')
   .get(handleAsyncException(pagoController.getPagos));
+
+router
+  .route('/:id/papeles')
+  .get(handleAsyncException(papelesController.getPapelesByStudent));
 
 module.exports = router;
