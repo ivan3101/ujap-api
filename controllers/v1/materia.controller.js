@@ -69,19 +69,27 @@ module.exports.getSeccionesProfesor = async (req, res) => {
   }).select('horario');
 
   const secciones = [];
+  const ids = [];
 
   for (let materia of materias){
     for (let horario of materia.horario) {
       const horarioObj = horario.toObject();
       if (!secciones.includes(horarioObj.seccion)) {
+        ids.push(materia._id);
         secciones.push(horarioObj.seccion);
       }
     }
   }
-
+console.log({
+  ids,
+  secciones
+});
   res
     .status(200)
-    .json(secciones);
+    .json({
+      ids,
+      secciones
+    });
 };
 
 module.exports.getMateriaBySeccionProfesor = async (req, res) => {
